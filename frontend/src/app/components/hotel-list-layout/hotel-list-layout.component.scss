@@ -1,0 +1,19 @@
+.hotel-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}
+
+.hotels-grid {
+  display: grid;
+  padding: 10px;
+  gap: 16px;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}

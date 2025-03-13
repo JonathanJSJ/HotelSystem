@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+
+button {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.4s ease;
+
+  &.filled {
+    color: white;
+    background: $green;
+
+    &:hover {
+      background: $darkGreen;
+    }
+  }
+
+  &.outlined {
+    background: #edfff4;
+    color: $green;
+    border: 1px solid $green;
+
+    &:hover {
+      color: $darkGreen;
+      background: $lightGreen;
+    }
+  }
+
+  &.empty {
+    background: none;
+    color: $green;
+
+    &:hover {
+      color: $darkGreen;
+      background-color: $lightGreen;
+    }
+  }
+}

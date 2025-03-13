@@ -1,0 +1,69 @@
+@use '@angular/material' as mat;
+
+@include mat.core(); 
+
+$green-palette: (
+  50: #e3f5eb,
+  100: #b8e4cb,
+  200: #89d3a9,
+  300: #5ac287,
+  400: #34b36d,
+  500: #188d3f, // Cor principal
+  600: #157f39,
+  700: #10692e, // Cor secundária
+  800: #0c5424,
+  900: #083e1a,
+  A100: #b9ffcc,
+  A200: #86ffa8,
+  A400: #53ff84,
+  A700: #3aff72,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$primary-color: mat.define-palette($green-palette, 500);
+$accent-color: mat.define-palette($green-palette, A200);
+$warn-color: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $primary-color,
+    accent: $accent-color,
+    warn: $warn-color,
+  ),
+));
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#content {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins",Arial;
+  overflow-x: hidden;
+}
+
+@include mat.all-component-themes($custom-theme);

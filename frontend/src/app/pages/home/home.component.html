@@ -1,0 +1,7 @@
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!errorMessage && hotels.length" class="home-container">
+  <app-hotel-list-layout [title]="'Recommended Hotels'" [hotels]="hotels"/>
+</div>

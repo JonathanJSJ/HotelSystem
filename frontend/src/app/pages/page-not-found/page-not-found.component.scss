@@ -1,0 +1,43 @@
+@import "../../../styles/variables";
+
+.page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+
+  .content {
+    text-align: center;
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .error-code {
+    font-size: 100px;
+    color: $darkGreen;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px;
+  }
+
+  .description {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .error-time {
+    margin-bottom: 30px;
+    font-size: 0.9em;
+    color: #666;
+  }
+}

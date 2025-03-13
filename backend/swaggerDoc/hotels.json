@@ -1,0 +1,167 @@
+{
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "Hotels",
+      "description": "Operations related to hotel management"
+    }
+  ],
+  "paths": {
+    "/hotels": {
+      "get": {
+        "summary": "Retrieve a paginated list of hotels",
+        "tags": ["Hotels"],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "itens",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "default": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of hotels",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new hotel",
+        "tags": ["Hotels"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "hotel",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Hotel created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/hotels/available": {
+      "get": {
+        "summary": "Retrieve available hotels based on filters",
+        "tags": ["Hotels"],
+        "parameters": [
+          { "name": "checkin", "in": "query", "type": "string" },
+          { "name": "checkout", "in": "query", "type": "string" },
+          { "name": "single", "in": "query", "type": "integer" },
+          { "name": "double", "in": "query", "type": "integer" },
+          { "name": "suite", "in": "query", "type": "integer" },
+          { "name": "familysuite", "in": "query", "type": "integer" }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available hotels",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hotels/{id}": {
+      "get": {
+        "summary": "Retrieve a specific hotel",
+        "tags": ["Hotels"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hotel details",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Hotel not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a hotel",
+        "tags": ["Hotels"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "hotel",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hotel updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Hotel not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a hotel",
+        "tags": ["Hotels"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Hotel successfully deleted"
+          },
+          "404": {
+            "description": "Hotel not found"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import "../../../styles/variables";
+
+.searchBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 50px;
+  color: #333;
+  background-color: white;
+  cursor: pointer;
+
+  .filters {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+
+    .filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      white-space: nowrap;
+      height: 35px;
+      color: black;
+      background-color: $lightGreen;
+      border-radius: 30px;
+    }
+  }
+
+  .placeHolder {
+    margin-left: 10px;
+    color: #999999;
+  }
+
+  .searchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    height: 40px;
+    width: 40px;
+    color: white;
+    border: none;
+    background-color: $green;
+    border-radius: 30px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $darkGreen;
+    }
+  }
+}

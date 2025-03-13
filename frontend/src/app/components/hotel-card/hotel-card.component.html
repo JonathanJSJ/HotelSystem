@@ -1,0 +1,19 @@
+<div class="hotel-card">
+  <img [src]="image_url" alt="Hotel Image" class="hotel-card__image" />
+
+  <div class="hotel-card__info">
+    <h3 class="hotel-card__name">{{ name }}</h3>
+    <p class="hotel-card__location">
+      <span class="material-icons">location_on</span> {{ location }}
+    </p>
+    <div class="hotel-card__details">
+      <p class="hotel-card__rating">
+        <span class="material-icons">star</span> {{ rating }} / 5
+      </p>
+      <p class="hotel-card__price">
+        <span class="material-icons">payments</span> {{ start_price | currency:'USD':'symbol':'1.2-2' }}
+      </p>
+    </div>
+    <app-button class="hotel-card__button" (click)="goToHotelDetails()" [text]="'Book Now'"/>
+  </div>
+</div>

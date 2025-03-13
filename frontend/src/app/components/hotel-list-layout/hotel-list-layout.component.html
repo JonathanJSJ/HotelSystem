@@ -1,0 +1,17 @@
+<div class="hotel-list-container">
+    <h2>{{ title }}</h2>
+  
+    <div class="hotels-grid">
+      <app-hotel-card
+        *ngFor="let hotel of hotels"
+        [id]="hotel._id"
+        [name]="hotel.name"
+        [location]="hotel.localization"
+        [rating]="hotel.rate"
+        [start_price]="hotel.start_price"
+        [image_url]="hotel.image_url"
+      >
+      </app-hotel-card>
+    </div>
+  </div>
+  

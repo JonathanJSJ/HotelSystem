@@ -1,0 +1,12 @@
+<div *ngIf="hotels.length; else noHotels" class="pageContainer">
+  <app-hotel-list-layout
+    [title]="'Hotels we found for you:'"
+    [hotels]="hotels"
+  />
+</div>
+
+<ng-template #noHotels>
+  <h3 class="noFoundMsg">
+    Sorry, we couldn't find any hotels matching your filters.
+  </h3>
+</ng-template>

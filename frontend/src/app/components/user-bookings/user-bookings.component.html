@@ -1,0 +1,29 @@
+<div class="modal">
+  <header>
+    <h1>My Bookings</h1>
+    <button (click)="onClose()">✖</button>
+  </header>
+
+  <div class="bookingArea">
+    <div *ngIf="bookings && bookings.length > 0; else noBookings">
+      <div class="booking" *ngFor="let booking of bookings">
+        <div>
+          <h3>{{ booking.hotel_name }}</h3>
+          <p>{{ booking.start_date | date : "longDate" }}</p>
+          <p>{{ booking.end_date | date : "longDate" }}</p>
+        </div>
+        <app-button (click)="onCancelBooking(booking.id)" [text]="'Cancel'" [variant]="'empty'"/>
+      </div>
+    </div>
+
+    <ng-template #noBookings>
+      <p>No bookings have been made yet.</p>
+    </ng-template>
+  </div>
+
+  <app-button (click)="logout()" [text]="'Logout'" [variant]="'outlined'"/>
+
+  <p *ngIf="sucessMessage" class="sucess">{{ sucessMessage }}</p>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>

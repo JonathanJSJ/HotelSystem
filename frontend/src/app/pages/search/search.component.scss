@@ -1,0 +1,13 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.noFoundMsg {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}

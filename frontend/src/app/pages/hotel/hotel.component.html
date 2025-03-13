@@ -1,0 +1,52 @@
+<img class="hotelImage" alt="hotel image" src="{{ hotelImgUrl }}" />
+
+<div class="pageLayout">
+  <div class="leftArea">
+    <div>
+      <h1>{{ hotelName }}</h1>
+      <p class="hotel-location">
+        <span class="material-icons">location_on</span> {{ place }}
+      </p>
+      <p class="hotel-rating">
+        <span class="material-icons">star</span> {{ rate }} / 5
+      </p>
+    </div>
+
+    <app-booking-date-picker
+      (dateSelected)="onDateSelected($event)"
+    ></app-booking-date-picker>
+  </div>
+
+  <div class="roomsArea">
+    <h2>Rooms</h2>
+
+    <div *ngIf="rooms; else noRooms">
+      <div class="roomOpts">
+        <app-room-booking-option
+          *ngFor="let room of rooms"
+          [roomId]="room.id"
+          [roomType]="room.roomType"
+          [roomPrice]="room.perNightPrice"
+          [capacity]="room.capacity"
+          [availableQuantity]="room.availableQuantity"
+          (numOfRoomsChange)="onRoomsForBookingChange($event)"
+        ></app-room-booking-option>
+      </div>
+
+      <div class="actions">
+        <app-button (click)="onGoBack()" [text]="'Go Back'" [variant]="'empty'"/>
+        <app-button (click)="toggleBookingModal()" [text]="'Book'"/>
+      </div>
+    </div>
+
+    <ng-template #noRooms>
+      <p>Please, choose your booking date first.</p>
+    </ng-template>
+  </div>
+</div>
+
+<app-booking-details-modal
+  *ngIf="showBookingModal"
+  (closeModal)="toggleBookingModal()"
+  (confirmBook)="onBookConfirmation($event)"
+></app-booking-details-modal>

@@ -1,0 +1,59 @@
+<div class="modalOverlay">
+  <div class="modal">
+    <h2>Reservation Details</h2>
+
+    <form>
+      <div class="inputGroup">
+        <input
+          type="text"
+          placeholder="First Name"
+          [(ngModel)]="firstName"
+          name="firstName"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          [(ngModel)]="lastName"
+          name="lastName"
+          required
+        />
+      </div>
+
+      <div class="inputGroup">
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+        <input
+          type="tel"
+          placeholder="Cellphone Number"
+          [(ngModel)]="phone"
+          name="phone"
+          required
+        />
+      </div>
+    </form>
+
+    <div class="policy">
+      <h3>Booking Cancellation Policy</h3>
+      <p>
+        - A reservation can be cancelled three days prior to the reservation
+        date.
+      </p>
+      <p>
+        - If you attempt to cancel an existing reservation and the cancellation
+        date has expired, the transaction will be rejected and you will be
+        forced to cover all payments.
+      </p>
+    </div>
+
+    <div class="actions">
+      <app-button (click)="close()" [variant]="'empty'" [text]="'Cancel'"/>
+      <app-button (click)="confirmBooking()" [text]="'Confirm Booking'"/>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="filtersModal">
+    <header>
+        <h2>Filters</h2>
+        <button (click)="OnClose()">✖</button>
+    </header>
+
+    <main>
+        <app-booking-date-picker
+            (dateSelected)="OnDateSelected($event)"
+        ></app-booking-date-picker>
+        
+        <div class="roomOptionsContainer">
+            <h3>Room Type</h3>
+
+            <div class="roomOptions">
+                <div *ngFor="let room of roomOptions">
+                    <app-room-filter (optionSelected)="OnOptionSelected($event)" [roomType]="room"></app-room-filter>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

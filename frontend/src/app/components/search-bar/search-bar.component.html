@@ -1,0 +1,26 @@
+<div (click)="toggleFilters()" class="searchBarContainer">
+  <ng-container *ngIf="activeFilters.length > 0; else noFilters">
+    <div class="filters">
+      <div class="filter" *ngFor="let filter of activeFilters">
+        <p>{{ filter }}</p>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noFilters>
+    <p class="placeHolder">Search for hotels...</p>
+  </ng-template>
+
+  <div>
+    <button (click)="OnSearch(); $event.stopPropagation()" class="searchBtn">
+      <span class="material-icons">search</span>
+    </button>
+  </div>
+</div>
+
+<app-search-bar-filters
+  (dateSelected)="OnDateSelected($event)"
+  (optionSelected)="OnOptionSelected($event)"
+  *ngIf="showFilters"
+  (closeFilters)="toggleFilters()"
+></app-search-bar-filters>

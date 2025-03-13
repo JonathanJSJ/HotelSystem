@@ -1,0 +1,15 @@
+.error-message {
+  color: red;
+  font-weight: bold;
+  background-color: #ffe6e6;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}

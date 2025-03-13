@@ -1,0 +1,33 @@
+<div class="bookingArea">
+  <h3>Booking date</h3>
+  <mat-form-field appearance="outline">
+    <mat-label>Check-in</mat-label>
+    <input
+      matInput
+      [matDatepicker]="checkinPicker"
+      [(ngModel)]="checkinDate"
+      [min]="minCheckin"
+      (ngModelChange)="checkDates()"
+    />
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="checkinPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #checkinPicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Check-out</mat-label>
+    <input
+      matInput
+      [matDatepicker]="checkoutPicker"
+      [(ngModel)]="checkoutDate"
+      [min]="minCheckout"
+      (ngModelChange)="checkDates()"
+    />
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="checkoutPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #checkoutPicker></mat-datepicker>
+  </mat-form-field>
+</div>

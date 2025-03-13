@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "Bookings",
+      "description": "Operations related to user bookings"
+    }
+  ],
+  "paths": {
+    "/bookings/user": {
+      "post": {
+        "summary": "Create a new booking for the authenticated user",
+        "tags": ["Bookings"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "booking",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "room_id": { "type": "string", "format": "ObjectId" },
+                "check_in": { "type": "string", "format": "date" },
+                "check_out": { "type": "string", "format": "date" },
+                "status": { "type": "string" }
+              },
+              "required": ["room_id", "check_in", "check_out", "status"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Booking created successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all bookings for the authenticated user",
+        "tags": ["Bookings"],
+        "responses": {
+          "200": {
+            "description": "List of user bookings"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/bookings/room/{id}": {
+      "get": {
+        "summary": "Get all bookings for a specific room",
+        "tags": ["Bookings"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of room bookings"
+          },
+          "404": {
+            "description": "Room not found"
+          }
+        }
+      }
+    },
+    "/bookings/user/{id}": {
+      "delete": {
+        "summary": "Delete a user booking",
+        "tags": ["Bookings"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "ObjectId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Booking successfully deleted"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Booking not found"
+          }
+        }
+      }
+    }
+  }
+}

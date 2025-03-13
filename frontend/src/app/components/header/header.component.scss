@@ -1,0 +1,131 @@
+@import "../../../styles/_variables.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 30px;
+  background: $green;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+
+  .identity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: white;
+    }
+  }
+
+  .action-area {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    gap: 20px;
+
+    .search-box {
+      display: flex;
+      width: 60%;
+      justify-content: right;
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .user-name {
+        white-space: nowrap;
+      }
+
+      button {
+        padding: 10px 16px;
+        border: none;
+        background: white;
+        color: $green;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background: $green;
+          color: white;
+        }
+      }
+
+      .icon {
+        font-size: 35px;
+        cursor: pointer;
+        color: white;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    .action-area {
+      .search-box {
+        width: 85%;
+      }
+
+      .user-actions {
+        .user-name {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 5px;
+    height: 155px;
+
+    .identity {
+      z-index: 999;
+      img {
+        width: 50px;
+        height: 50px;
+
+      }
+    }
+
+    .action-area {
+      position: relative;
+      top: -60px;
+      right: 0px;
+      width: 100%;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+
+      .search-box {
+        width: 100%;
+      }
+    }
+  }
+}

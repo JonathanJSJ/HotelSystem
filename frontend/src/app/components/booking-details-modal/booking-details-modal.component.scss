@@ -1,0 +1,92 @@
+@import "../../../styles/variables";
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 750px;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h2 {
+  color: $green;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid $darkGreen;
+  border-radius: 5px;
+}
+
+.policy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.policy h3 {
+  margin: 6px;
+  color: #333;
+  font-weight: bold;
+}
+
+.policy p {
+  text-align: justify;
+  margin: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+
+@media (max-width:768px) {
+  .modal{
+    margin: 10px;
+    form{
+      .inputGroup{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

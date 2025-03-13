@@ -1,0 +1,11 @@
+<div class="page-not-found">
+  <div class="content">
+    <h1 class="error-code">404</h1>
+    <h2 class="message">{{ "Oops! Page Not Found" | uppercase }}</h2>
+    <p class="description">We couldn't find the page you're looking for.</p>
+    <p class="error-time">
+      Error occurred at: {{ currentDate | date : "short" }}
+    </p>
+    <app-button (click)="goToHomePage()" [text]="'Return to home page'"/>
+  </div>
+</div>

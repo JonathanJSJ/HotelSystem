@@ -1,0 +1,69 @@
+@import '../../../styles/variables.scss';
+
+.filtersModal {
+  position: absolute;
+  left: 50%;
+  top: 80px;
+  transform: translateX(-50%);
+  align-items: center;
+  z-index: 100;
+  color: black;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 0px 15px 0px;
+
+    h2 {
+      margin: 0px;
+      color: $green;
+    }
+
+    button{
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: $green;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0px;
+
+    .roomOptionsContainer {
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px dashed green;
+
+      h3{
+        margin: 0px;
+      }
+
+      .roomOptions {
+        display: flex;
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  .filtersModal{
+    top: 120px;
+  }
+}

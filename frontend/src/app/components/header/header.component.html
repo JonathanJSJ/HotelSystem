@@ -1,0 +1,26 @@
+<header>
+  <div class="identity" (click)="goToHome()">
+    <img src="assets/images/logo.png" alt="Hotel logo" />
+    <h1>Hotel Booking</h1>
+  </div>
+
+  <div class="action-area">
+    <app-search-bar class="search-box"></app-search-bar>
+  
+    <div class="user-actions">
+      <ng-container *ngIf="userName; else loginTemplate">
+        <span class="user-name">Welcome, {{ userName | titlecase }}!</span> 
+        <span (click)="toggleState('bookings')" class="material-icons icon">person</span>
+      </ng-container>
+      
+      <ng-template #loginTemplate>
+        <button (click)="toggleState('login')">Login</button>
+      </ng-template>
+      
+    </div>
+  </div>
+</header>
+
+<app-login-modal *ngIf="showLogin" (close)="toggleState('login')"></app-login-modal>
+
+<app-user-bookings *ngIf="showBookings" (closeModal)="toggleState('bookings')" />

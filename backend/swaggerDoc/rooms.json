@@ -1,0 +1,153 @@
+{
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "Rooms",
+      "description": "Operations related to room management"
+    }
+  ],
+  "paths": {
+    "/rooms/{hotelId}": {
+      "get": {
+        "summary": "Retrieve rooms of a hotel with availability status",
+        "tags": ["Rooms"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hotelId",
+            "required": true,
+            "type": "string",
+            "format": "ObjectId"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available rooms",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "format": "ObjectId" },
+                  "hotel_id": { "type": "string", "format": "ObjectId" },
+                  "type": { "type": "string" },
+                  "status": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rooms": {
+      "post": {
+        "summary": "Create a new room",
+        "tags": ["Rooms"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "room",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hotel_id": { "type": "string", "format": "ObjectId" },
+                "type": { "type": "string" },
+                "status": { "type": "string" }
+              },
+              "required": ["hotel_id", "type", "status"]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Room created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "format": "ObjectId" },
+                "hotel_id": { "type": "string", "format": "ObjectId" },
+                "type": { "type": "string" },
+                "status": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rooms/{id}": {
+      "put": {
+        "summary": "Update a room",
+        "tags": ["Rooms"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "ObjectId"
+          },
+          {
+            "in": "body",
+            "name": "room",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hotel_id": { "type": "string", "format": "ObjectId" },
+                "type": { "type": "string" },
+                "status": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Room updated successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "format": "ObjectId" },
+                "hotel_id": { "type": "string", "format": "ObjectId" },
+                "type": { "type": "string" },
+                "status": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a room",
+        "tags": ["Rooms"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "ObjectId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Room successfully deleted"
+          }
+        }
+      }
+    }
+  }
+}

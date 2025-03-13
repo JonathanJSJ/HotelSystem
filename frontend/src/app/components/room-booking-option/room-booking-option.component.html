@@ -1,0 +1,12 @@
+<div class="roomOpt">
+  <div class="info">
+    <h1>{{ roomType }}</h1>
+    <p>( {{ capacity }} person )</p>
+    <p>{{ roomPrice | currency:'USD':'symbol':'1.2-2' }} per night</p>
+  </div>
+  <div class="actions">
+    <button (click)="decrementRooms()">-</button>
+    <p>{{ numOfRooms }}</p>
+    <button (click)="incrementRooms()">+</button>
+  </div>
+</div>

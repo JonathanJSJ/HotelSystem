@@ -1,0 +1,6 @@
+<div class="optionContainer" [ngClass]="{ isSelected: isSelected }">
+  <div class="clickArea" (click)="toggleSelection()">
+    <p>{{ roomType }}</p>
+  </div>
+  <input [(ngModel)]="quantity" (ngModelChange)="OnQuantityChanged()" />
+</div>

@@ -1,0 +1,54 @@
+@import "../../../styles/variables";
+
+.login-modal {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  z-index: 999;
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  &__error {
+    color: red;
+    font-size: 14px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 20px;
+  }
+
+  &__text {
+    text-align: center;
+  }
+}
